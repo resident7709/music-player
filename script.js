@@ -47,6 +47,11 @@ const songs = [
     displayName: "We Live Forever",
     artist: "The Prodigy",
   },
+  {
+    name: "song-8",
+    displayName: "A Life Apart",
+    artist: "Monaco",
+  },
 ];
 
 // *Check if playing
