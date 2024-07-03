@@ -1,79 +1,79 @@
-const image = document.querySelector("img");
-const title = document.getElementById("title");
-const artist = document.getElementById("artist");
-const music = document.querySelector("audio");
-const progressContainer = document.getElementById("progress-container");
-const progress = document.getElementById("progress");
-const currentTimeEl = document.getElementById("current-time");
-const durationEl = document.getElementById("duration");
-const prevBtn = document.getElementById("prev");
-const playBtn = document.getElementById("play");
-const nextBtn = document.getElementById("next");
+const image = document.querySelector('img');
+const title = document.getElementById('title');
+const artist = document.getElementById('artist');
+const music = document.querySelector('audio');
+const progressContainer = document.getElementById('progress-container');
+const progress = document.getElementById('progress');
+const currentTimeEl = document.getElementById('current-time');
+const durationEl = document.getElementById('duration');
+const prevBtn = document.getElementById('prev');
+const playBtn = document.getElementById('play');
+const nextBtn = document.getElementById('next');
 
-// *Music
+// * Music
 const songs = [
   {
-    name: "song-1",
-    displayName: "Love is All Around",
-    artist: "Wet Wet Wet",
+    name: 'song-1',
+    displayName: 'Love is All Around',
+    artist: 'Wet Wet Wet',
   },
   {
-    name: "song-2",
-    displayName: "Sweet Harmony",
-    artist: "The Beloved",
+    name: 'song-2',
+    displayName: 'Sweet Harmony',
+    artist: 'The Beloved',
   },
   {
-    name: "song-3",
-    displayName: "Hello",
-    artist: "Martin Solveig",
+    name: 'song-3',
+    displayName: 'Hello',
+    artist: 'Martin Solveig',
   },
   {
-    name: "song-4",
-    displayName: "Spybreak!",
-    artist: "Propellerheads",
+    name: 'song-4',
+    displayName: 'Spybreak!',
+    artist: 'Propellerheads',
   },
   {
-    name: "song-5",
+    name: 'song-5',
     displayName: "Body Movin'",
-    artist: "Beastie Boys",
+    artist: 'Beastie Boys',
   },
   {
-    name: "song-6",
-    displayName: "Ya Mama",
-    artist: "Fat Boy Slim",
+    name: 'song-6',
+    displayName: 'Ya Mama',
+    artist: 'Fat Boy Slim',
   },
   {
-    name: "song-7",
-    displayName: "We Live Forever",
-    artist: "The Prodigy",
+    name: 'song-7',
+    displayName: 'We Live Forever',
+    artist: 'The Prodigy',
   },
   {
-    name: "song-8",
-    displayName: "A Life Apart",
-    artist: "Monaco",
+    name: 'song-8',
+    displayName: 'A Life Apart',
+    artist: 'Monaco',
   },
 ];
 
-// *Check if playing
+// * Check if playing
 let isPlaying = false;
 
 function playSong() {
   isPlaying = true;
-  playBtn.classList.replace("fa-play", "fa-pause");
-  playBtn.setAttribute("title", "Pause");
+  playBtn.classList.replace('fa-play', 'fa-pause');
+  playBtn.setAttribute('title', 'Pause');
   music.play();
 }
 function pauseSong() {
   isPlaying = false;
-  playBtn.classList.replace("fa-pause", "fa-play");
-  playBtn.setAttribute("title", "Play");
+  playBtn.classList.replace('fa-pause', 'fa-play');
+  playBtn.setAttribute('title', 'Play');
   music.pause();
 }
 
-// *Play or Pause Event Listener
-playBtn.addEventListener("click", () => (isPlaying ? pauseSong() : playSong()));
+// * Play or Pause Event Listener
+playBtn.addEventListener('click', () => (isPlaying ? pauseSong() : playSong()));
 
-// *Update DOM
+// * Update DOM
 function loadSong(song) {
   title.textContent = song.displayName;
   artist.textContent = song.artist;
@@ -81,10 +81,10 @@ function loadSong(song) {
   image.src = `img/${song.name}.jpg`;
 }
 
-// *Current Song
+// * Current Song
 let songIndex = 0;
 
-// *Previous Song
+// * Previous Song
 function prevSong() {
   songIndex--;
   if (songIndex < 0) {
@@ -94,7 +94,7 @@ function prevSong() {
   playSong();
 }
 
-// *Next Song
+// * Next Song
 function nextSong() {
   songIndex++;
   if (songIndex > songs.length - 1) {
@@ -106,7 +106,7 @@ function nextSong() {
 
 loadSong(songs[songIndex]);
 
-// *Update Progress Bar & Time
+// * Update Progress Bar & Time
 function updateProgressBar(e) {
   if (isPlaying) {
     const { duration, currentTime } = e.srcElement;
@@ -133,7 +133,7 @@ function updateProgressBar(e) {
   }
 }
 
-// *Set Progress Bar
+// * Set Progress Bar
 function setProgressBar(e) {
   const width = this.clientWidth;
   const clickX = e.offsetX;
@@ -141,9 +141,9 @@ function setProgressBar(e) {
   music.currentTime = (clickX / width) * duration;
 }
 
-// *Event Listeners
-prevBtn.addEventListener("click", prevSong);
-nextBtn.addEventListener("click", nextSong);
-music.addEventListener("ended", nextSong);
-music.addEventListener("timeupdate", updateProgressBar);
-progressContainer.addEventListener("click", setProgressBar);
+// * Event Listeners
+prevBtn.addEventListener('click', prevSong);
+nextBtn.addEventListener('click', nextSong);
+music.addEventListener('ended', nextSong);
+music.addEventListener('timeupdate', updateProgressBar);
+progressContainer.addEventListener('click', setProgressBar);

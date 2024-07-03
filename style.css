@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap');
 
 html {
   box-sizing: border-box;
 }
 body {
-  font-family: "Inconsolata", monospace;
+  font-family: 'Inconsolata', monospace;
   font-size: 12px;
   background-color: #ffff85;
   display: flex;
@@ -45,7 +45,7 @@ h3 {
   margin: 5px 0 0;
   text-align: center;
 }
-/** Progress */
+/* * Progress */
 .progress-container {
   background: #fff;
   border-radius: 5px;
@@ -67,7 +67,7 @@ h3 {
   position: relative;
   top: -25px;
 }
-/** Controls */
+/* * Controls */
 .player-controls {
   position: relative;
   top: -15px;
@@ -89,8 +89,7 @@ h3 {
   position: relative;
   top: 3px;
 }
-
-/** Media Query: iPhone (Vertical) */
+/* * Media Query: iPhone (Vertical) */
 @media screen and (max-width: 376px) {
   .player-container {
     display: flex;
